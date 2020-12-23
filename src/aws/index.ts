@@ -8,7 +8,7 @@ import type { APIGatewayEvent, APIGatewayProxyResult } from 'aws-lambda';
 
 import HttpError from 'http-errors';
 
-interface TShallotErrorHandlerOptions extends Record<string, unknown> {
+export interface TShallotErrorHandlerOptions extends Record<string, unknown> {
   logger?: (...args: string[]) => void;
 }
 
