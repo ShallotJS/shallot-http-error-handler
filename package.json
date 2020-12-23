@@ -1,6 +1,6 @@
 {
   "name": "@shallot/http-error-handler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Error handling middleware for REST APIs",
   "keywords": [
     "typescript",
