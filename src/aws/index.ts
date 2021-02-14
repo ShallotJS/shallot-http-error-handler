@@ -9,7 +9,8 @@ import type { APIGatewayEvent, APIGatewayProxyResult } from 'aws-lambda';
 import HttpError from 'http-errors';
 
 export interface TShallotErrorHandlerOptions extends Record<string, unknown> {
-  logger?: (...args: string[]) => void;
+  logger?: (...args: unknown[]) => void;
+  catchAllErrors?: boolean;
 }
 
 /**
@@ -35,6 +36,15 @@ const ShallotAWSHttpErrorHandler: ShallotMiddlewareWithOptions<
       request.response = {
         statusCode: request.error.statusCode,
         body: request.error.message,
+      };
+    } else if (config.catchAllErrors) {
+      if (config.logger != null) {
+        config.logger(request.error);
+      }
+
+      request.response = {
+        statusCode: 500,
+        body: 'Internal application server error',
       };
     }
   },
