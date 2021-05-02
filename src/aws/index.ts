@@ -25,6 +25,7 @@ const ShallotAWSHttpErrorHandler: ShallotAWSMiddlewareWithOptions<
   APIGatewayProxyResult,
   TShallotErrorHandlerOptions
 > = (config) => ({
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   onError: async (request) => {
     config = { logger: console.error, ...config };
 
