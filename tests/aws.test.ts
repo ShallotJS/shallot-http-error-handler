@@ -8,7 +8,7 @@ import type {
 import { test, describe, jest, expect } from '@jest/globals';
 
 import HttpError from 'http-errors';
-import { ShallotAWS } from 'shallot';
+import ShallotAWS from '@shallot/aws';
 import { ShallotAWSHttpErrorHandler } from '../src';
 
 describe('http-error-handler middleware', () => {

@@ -3,7 +3,7 @@
  * https://github.com/middyjs/middy/tree/master/packages/http-error-handler
  */
 
-import type { ShallotMiddlewareWithOptions } from 'shallot/dist/aws/core';
+import type { ShallotAWSMiddlewareWithOptions } from '@shallot/aws';
 import type { APIGatewayEvent, APIGatewayProxyResult } from 'aws-lambda';
 
 import HttpError from 'http-errors';
@@ -20,7 +20,7 @@ export interface TShallotErrorHandlerOptions extends Record<string, unknown> {
  *
  * @param config optional object to pass config options
  */
-const ShallotAWSHttpErrorHandler: ShallotMiddlewareWithOptions<
+const ShallotAWSHttpErrorHandler: ShallotAWSMiddlewareWithOptions<
   APIGatewayEvent,
   APIGatewayProxyResult,
   TShallotErrorHandlerOptions
